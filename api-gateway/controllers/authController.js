@@ -7,9 +7,6 @@
 ; Description: Exercise 2.3 - API Gateway Part II
 ;===========================================
 */
-var header = require('../hemminger-header');
-console.log(header.display('Andrew', 'Hemminger', 'Exercise 2.3'));
-console.log('\n');
 
 // start program
 var User = require('../models/user');

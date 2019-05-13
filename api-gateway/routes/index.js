@@ -7,9 +7,6 @@
 ; Description: Exercise 1.4 - API Gateway Part I
 ;===========================================
 */
-var header = require('../hemminger-header');
-console.log(header.display('Andrew', 'Hemminger', 'Exercise 1.4'));
-console.log('\n');
 
 // start program
 
