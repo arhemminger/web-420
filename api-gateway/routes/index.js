@@ -1,3 +1,18 @@
+/*
+============================================
+; Title:  API Gateway Part I
+; Author: Professor Krasso
+; Date:  5 May 2019
+; Modified by: Andrew Hemminger
+; Description: Exercise 1.4 - API Gateway Part I
+;===========================================
+*/
+var header = require('../hemminger-header');
+console.log(header.display('Andrew', 'Hemminger', 'Exercise 1.4'));
+console.log('\n');
+
+// start program
+
 var express = require('express');
 var router = express.Router();
 
@@ -7,3 +22,5 @@ router.get('/', function(req, res, next) {
 });
 
 module.exports = router;
+
+// end program

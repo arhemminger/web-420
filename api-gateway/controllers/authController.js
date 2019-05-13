@@ -12,13 +12,16 @@ console.log(header.display('Andrew', 'Hemminger', 'Exercise 2.3'));
 console.log('\n');
 
 // start program
-var config = {};
+var User = require('../models/user');
 
-config.web = {};
+// Register a new user on POST
+exports.user_register = function(req, res) {
+    res.send('NOT IMPLEMENTED: User registration POST');
+};
 
-config.web.port = process.env.PORT || "3000";
+// Verify token on GET
+exports.user_token = function(req, res) {
+    res.send('NOT IMPLEMENTED: User token lookup GET');
+};
 
-config.web.secret = 'topsecret';
-
-module.exports = config;
 // end program

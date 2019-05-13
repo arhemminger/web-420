@@ -12,13 +12,21 @@ console.log(header.display('Andrew', 'Hemminger', 'Exercise 2.3'));
 console.log('\n');
 
 // start program
-var config = {};
 
-config.web = {};
+/**
+ * API Routes
+ */
 
-config.web.port = process.env.PORT || "3000";
+var express = require('express');
+var router = express.Router();
+var auth_controller = require('../controllers/authController');
 
-config.web.secret = 'topsecret';
+// POST request for registering a user
+router.post('/auth/register', auth_controller.user_register);
 
-module.exports = config;
+// GET request for verifying user tokens
+router.get('/auth/token', auth_controller.user_token);
+
+module.exports = router;
+
 // end program

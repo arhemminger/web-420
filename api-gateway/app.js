@@ -1,3 +1,17 @@
+/*
+============================================
+; Title:  API Gateway Part II
+; Author: Professor Krasso
+; Date:  12 May 2019
+; Modified by: Andrew Hemminger
+; Description: Exercise 2.3 - API Gateway Part II
+;===========================================
+*/
+var header = require('../hemminger-header');
+console.log(header.display('Andrew', 'Hemminger', 'Exercise 2.3'));
+console.log('\n');
+
+// start program
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -8,7 +22,9 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 
+// require statements for pages
 var indexRouter = require('./routes/index');
+var apiCatalog = require('./routes/api-catalog');
 
 var app = express();
 
@@ -35,6 +51,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+// register the API catalog routes
+app.use('/api', apiCatalog);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -53,3 +71,4 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+// end program

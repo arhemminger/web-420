@@ -12,13 +12,26 @@ console.log(header.display('Andrew', 'Hemminger', 'Exercise 2.3'));
 console.log('\n');
 
 // start program
-var config = {};
 
-config.web = {};
+/**
+ Fields username, password, and email
+ */
 
-config.web.port = process.env.PORT || "3000";
+var mongoose = require('mongoose');
 
-config.web.secret = 'topsecret';
 
-module.exports = config;
-// end program
+var userSchema = new mongoose.Schema({
+    username: String,
+    password: String,
+    email: String
+});
+
+module.exports = mongoose.model('User', userSchema);
+
+
+/**
+ Database queries
+ */
+
+
+ // end program
