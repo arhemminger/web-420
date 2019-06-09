@@ -1,10 +1,10 @@
 /*
 ============================================
-; Title:  API Gateway Part III
+; Title:  API Gateway Part IV
 ; Author: Professor Krasso
-; Date:  25 May 2019
+; Date:  8 June 2019
 ; Modified by: Andrew Hemminger
-; Description: Exercise 4.3 - API Gateway Part III
+; Description: Exercise 6.3 - API Gateway Part IV
 ;===========================================
 */
 
@@ -39,4 +39,8 @@ module.exports.getById = (id, callback) => {
     User.findById(query, callback);
 }
 
+module.exports.getOne = (e, callback) => {
+    var query = {email: e};
+    User.findOne(query, callback);
+};
  // end program

@@ -1,10 +1,10 @@
 /*
 ============================================
-; Title:  API Gateway Part II
+; Title:  API Gateway Part IV
 ; Author: Professor Krasso
-; Date:  12 May 2019
+; Date:  8 June 2019
 ; Modified by: Andrew Hemminger
-; Description: Exercise 2.3 - API Gateway Part II
+; Description: Exercise 6.3 - API Gateway Part IV
 ;===========================================
 */
 
@@ -23,6 +23,12 @@ router.post('/auth/register', auth_controller.user_register);
 
 // GET request for verifying user tokens
 router.get('/auth/token', auth_controller.user_token);
+
+// POST request for signing users in
+router.post('/auth/login', auth_controller.user_login);
+
+// GET request for logging users out
+router.get('/auth/logout', auth_controller.user_logout);
 
 module.exports = router;
 
