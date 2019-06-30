@@ -7,7 +7,7 @@
 ; Description: Exercise 6.3 - API Gateway Part IV
 ;===========================================
 */
-var header = require('../hemminger-header');
+var header = require('./hemminger-header');
 console.log(header.display('Andrew', 'Hemminger', 'Exercise 6.3'));
 console.log('\n');
 
