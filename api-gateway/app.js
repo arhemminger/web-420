@@ -1,14 +1,14 @@
 /*
 ============================================
-; Title:  API Gateway Part IV
+; Title:  API Gateway Part VI
 ; Author: Professor Krasso
-; Date:  8 June 2019
+; Date:  30 June 2019
 ; Modified by: Andrew Hemminger
-; Description: Exercise 6.3 - API Gateway Part IV
+; Description: Exercise 9.3 - API Gateway Part VI
 ;===========================================
 */
 var header = require('./hemminger-header');
-console.log(header.display('Andrew', 'Hemminger', 'Exercise 6.3'));
+console.log(header.display('Andrew', 'Hemminger', 'Exercise 9.3'));
 console.log('\n');
 
 // start program
@@ -23,7 +23,7 @@ var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 
 // require statements for pages
-var indexRouter = require('./routes/index');
+var index = require('./routes/index');
 var apiCatalog = require('./routes/api-catalog');
 
 var app = express();
@@ -45,18 +45,20 @@ app.set('view engine', 'ejs');
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+app.use('/', index);
 // register the API catalog routes
 app.use('/api', apiCatalog);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
 });
 
 // error handler
